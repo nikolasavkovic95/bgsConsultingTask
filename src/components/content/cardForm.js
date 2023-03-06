@@ -43,7 +43,6 @@ const CardForm = ({ errors }) => {
             }}
             sx={{ mt: 3 }}
             type="text"
-            name="cardNumber"
             label="Card Number"
             variant="filled"
             {...register('cardNumber', {
@@ -58,7 +57,6 @@ const CardForm = ({ errors }) => {
           <TextField
             sx={{ mt: 3 }}
             type="text"
-            name="cardName"
             variant="filled"
             label="Holder Name"
             error={errors.cardName?.message ? true : false}
@@ -69,7 +67,6 @@ const CardForm = ({ errors }) => {
             <InputDiv>
               <TextField
                 variant="filled"
-                name="expiryDate"
                 label="Expiry Date"
                 error={errors.expiryDate?.message ? true : false}
                 helperText={errors.expiryDate?.message}
@@ -85,7 +82,6 @@ const CardForm = ({ errors }) => {
               <TextField
                 sx={{ mb: 2 }}
                 type="text"
-                name="cvv"
                 variant="filled"
                 label="CVV Number"
                 error={errors.cvv?.message ? true : false}
