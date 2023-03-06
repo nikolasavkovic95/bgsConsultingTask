@@ -87,7 +87,7 @@ const CardForm = ({ errors }) => {
                 type="text"
                 name="cvv"
                 variant="filled"
-                label="CCV Number"
+                label="CVV Number"
                 error={errors.cvv?.message ? true : false}
                 helperText={errors.cvv?.message}
                 {...register('cvv')}
