@@ -215,6 +215,10 @@ const theme = createTheme({
       fontWeight: 400,
       color: colors.foreground.f30,
     },
+    errorMessage: {
+      fontSize: 12,
+      color: 'rgba(221, 68, 75, 1) !important',
+    },
 
     h3: {
       fontSize: 19,
