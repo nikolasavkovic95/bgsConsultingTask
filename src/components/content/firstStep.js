@@ -56,8 +56,6 @@ const FirstStep = () => {
               {formData.fields &&
                 formData.fields.map((value, key) => {
                   if (value.step === 1) {
-                    console.log(value.code);
-
                     if (value.name === 'Birthdate') {
                       return (
                         <>
