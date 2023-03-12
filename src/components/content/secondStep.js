@@ -8,9 +8,10 @@ import TextField from '../inputs/textField';
 import { Grid } from '@mui/material';
 import { BorderGradient, ContentWrapper } from './content';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { errorSchema } from '../../validations/formValidation';
 import { secondErrorSchema } from '../../validations/secondValidation';
+import { Typography } from '@mui/material';
 import { formData } from '../../api/sampleData';
+import { errorSchema } from '../../validations/formValidation';
 
 export const Wrapper = styled('div')({});
 
@@ -23,7 +24,7 @@ const SecondStep = () => {
   } = useForm({ defaultValues: state, mode: 'onSubmit', resolver: yupResolver(secondErrorSchema) });
 
   const navigate = useNavigate();
-
+  console.log(errors);
   const saveData = (data) => {
     console.log(data);
     setState({ ...state, ...data });
@@ -40,6 +41,23 @@ const SecondStep = () => {
               {formData.fields &&
                 formData.fields.map((value, key) => {
                   if (value.step === 2) {
+                    if (value.name === 'Countrycode') {
+                      return (
+                        <>
+                          <Typography variant="body2">{value.name}</Typography>
+                          <select style={{ marginBottom: 20 }}>
+                            {value.valueList &&
+                              value.valueList.map((value, key) => {
+                                return (
+                                  <option key={key} value={value.value}>
+                                    {value.name}
+                                  </option>
+                                );
+                              })}
+                          </select>
+                        </>
+                      );
+                    }
                     console.log(value.code);
                     return (
                       <TextField
