@@ -27,7 +27,7 @@ const SecondStep = () => {
   const saveData = (data) => {
     console.log(data);
     setState({ ...state, ...data });
-    alert(JSON.stringify(state));
+    alert(JSON.stringify(data));
 
     navigate('/casino');
   };
@@ -56,7 +56,12 @@ const SecondStep = () => {
                   }
                 })}
 
-              <Button sx={{ mt: 1.5 }} variant="contained" type="submit">
+              <Button
+                sx={{ mt: 1.5 }}
+                disabled={Object.keys(errors).length === 0 ? false : true}
+                variant="contained"
+                type="submit"
+              >
                 Register
               </Button>
             </form>

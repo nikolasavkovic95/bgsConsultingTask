@@ -142,7 +142,12 @@ const FirstStep = () => {
                   }
                 })}
 
-              <Button sx={{ mt: 1.5 }} disabled={errors.length === 0 ? true : false} variant="contained" type="submit">
+              <Button
+                sx={{ mt: 1.5 }}
+                disabled={Object.keys(errors).length === 0 ? false : true}
+                variant="contained"
+                type="submit"
+              >
                 Next
               </Button>
             </form>
