@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { styled } from '@mui/material/styles';
 import { useAppState } from '../../context/formContext';
@@ -25,12 +25,10 @@ const PasswordAdornment = styled('div')({
 const FirstStep = () => {
   const [state, setState] = useAppState();
   const [showPassword, setShowPassword] = useState(false);
-  const [errKey, setErrKey] = useState();
 
   const {
     handleSubmit,
     register,
-    watch,
     formState: { errors },
   } = useForm({ defaultValues: state, mode: 'onSubmit', resolver: yupResolver(firstErrorSchema) });
 
@@ -60,7 +58,15 @@ const FirstStep = () => {
                       return (
                         <>
                           <Typography variant="body2">{value.name}</Typography>
-                          <TextField sx={{ mb: 3 }} type="date" variant="filled" {...register(value.code)} key={key} />
+                          <TextField
+                            sx={{ mb: 3 }}
+                            type="date"
+                            variant="filled"
+                            error={errors[value.code] ? true : false}
+                            helperText={errors[value.code]?.message}
+                            {...register(value.code)}
+                            key={key}
+                          />
                         </>
                       );
                     }
