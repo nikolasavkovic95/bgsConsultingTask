@@ -74,7 +74,7 @@ const FirstStep = () => {
                       return (
                         <>
                           <Typography variant="body2">{value.name}</Typography>
-                          <select style={{ marginBottom: 20 }}>
+                          <select {...register(value.code)} style={{ marginBottom: 20 }}>
                             {value.valueList &&
                               value.valueList.map((value, key) => {
                                 return (
